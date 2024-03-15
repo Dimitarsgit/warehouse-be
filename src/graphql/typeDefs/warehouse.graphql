@@ -1,0 +1,22 @@
+type Warehouse {
+    id: Int!
+    name: String!
+    capacity: Int!
+    remainingCapacity: Int!
+    items:[Item]
+}
+
+type Query {
+    warehouse(id: ID!): Warehouse
+    warehouses: [Warehouse]
+}
+
+input WarehouseInput {
+    name:String!,
+    capacity:Int!,
+}
+
+type Mutation {
+    createWarehouse(input: WarehouseInput): Warehouse
+}
+

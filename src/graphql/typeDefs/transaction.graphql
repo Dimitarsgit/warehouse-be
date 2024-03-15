@@ -1,0 +1,27 @@
+type Transaction {
+    id: Int!
+    itemId: Int!
+    warehouseId: Int!
+    type: String!
+    quantity:Int!
+    datetime: String!
+    item: Item
+    warehouse: Warehouse
+}
+
+type Query {
+    transactionsByWarehouseId(id: ID!): [Transaction]
+}
+
+input TransactionInput {
+    itemId: ID!,
+    warehouseId: ID!,
+    type: String!
+    quantity: Int!
+    datetime: String
+}
+
+type Mutation {
+    createTransaction(input: TransactionInput): Transaction
+}
+

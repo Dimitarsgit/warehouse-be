@@ -1,0 +1,34 @@
+type WarehouseItem {
+    itemId: ID,
+    warehouseId:ID
+    quantity:Int!
+}
+
+type Item {
+    id: Int!
+    name: String!
+    length: Int!
+    width: Int!
+    height: Int!
+    quantity: Int!
+    isHazardous: Boolean!
+    warehouseItem: WarehouseItem
+}
+
+type Query {
+    item(id: ID!): Item
+    items: [Item]
+}
+
+input ItemInput {
+    name:String!,
+    length:Int!
+    width:Int!
+    height:Int!
+    isHazardous: Boolean!
+}
+
+type Mutation {
+    createItem(input: ItemInput): Item
+}
+
