@@ -31,7 +31,7 @@ const bootstrapServer = async () => {
     })
 }
 
-//TOTO: Update to IIFE
-bootstrapServer().then(() => {
+;(async () => {
+    await bootstrapServer()
     console.log('Bootrstrapping completed')
-})
+})()
